@@ -11,7 +11,11 @@ import pathlib
 import warnings
 
 from math import sqrt
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname("__file__"), '..')))
+# sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+current_dir = os.path.dirname(os.path.abspath(__file__))
+yoloface_path = os.path.abspath(current_dir)
+if yoloface_path not in sys.path:
+    sys.path.append(yoloface_path)
 from models.common import Conv
 from models.yolo import Model
 from utils.datasets import letterbox
